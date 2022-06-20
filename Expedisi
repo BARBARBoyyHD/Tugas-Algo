@@ -1,0 +1,122 @@
+#1. Pendefinisian Struktur Data Linked List
+
+# Class Untuk Node
+
+class Node :
+    def _init_(self,info,Noresi,Nama,Alamat,Deskripsi):
+        self.info = info
+        self.Noresi = Noresi
+        self.Nama = Nama
+        self.Alamat = Alamat
+        self.Deskripsi = Deskripsi
+        Noresi = []
+        Nama = []
+        Alamat = []
+        Deskripsi = []
+        self.next = None
+        self.prev = None
+
+# Class Untuk Linked List
+class linkedList:
+    def _init_(self):
+        self.awal = None
+        self.akhir = None
+
+    def Kosong(Top):
+        if (Top == 0):
+            return True
+        else:
+            return False
+
+    def Penuh(Top):
+        if (Top == 1):
+            return True
+        else:
+            return False
+            #Memasukan Data Ke Stack
+    def Push(self,Noresi,Nama,Alamat,Deskripsi,Noresibaru,Namabaru,Alamatbaru,Deskripsibaru):
+        Top = Node()
+        self.Noresi = Noresi
+        self.Nama = Nama
+        self.Alamat = Alamat
+        self.Deskripsi = Deskripsi
+        if(not self.Penuh()):
+            pass
+        else:
+            print("Data Paket Sudah Penuh")
+    
+    def Pop(self,Noresi,Nama,Alamat,Deskripsi):
+        Top=Node(Noresi)
+        if(not self.kosong(Top)):
+            Noresi.pop()
+            Nama.pop()
+            Alamat.pop()
+            Deskripsi.pop()
+        else:
+            print("Data Paket Kosong !!!    ")
+
+    def TampilPop(self,Noresi,Nama,Alamat,Deskripsi):
+        Top = Node()
+        if(not self.Kosong()):
+            print("PT. HAFIZ EXPRESS JAYA MAKMUR SENTOSA ")
+            print("NO Resi          : ",Noresi)
+            print("Nama Pengirim    : ",Nama)
+            print("Alamat           : ",Alamat)
+            print("Deskprisi Barang : ",Deskripsi)
+        else :
+            print("Data Paket Kosong !!!")
+            
+
+    def tampilData(self,Noresi,Nama,Alamat,Deskripsi):
+        print("Isi Linked List : ",end=" ")
+        if self.Kosong():
+            print("Data Kosong")
+        else:
+            bantu = self.Noresi
+            while bantu is not None:
+                    print(bantu.akhir," ",end=" ")
+                    if (bantu.next != None):
+                        print("->",end=" ")
+                    bantu = bantu
+
+            print()
+
+    def SisipDepanDouble(self, Noresi):
+        Baru = Node(Noresi)
+        if (self.Kosong()):
+            self.akhir = Baru
+        else:
+            Baru.next = self.awal
+            self.awal.prev = Baru
+        self.awal = Baru
+
+
+#Program Utama
+#Top = len(Nim)
+list1 = linkedList()
+print("--MENU PILIHAN--")
+print("1. Isi Data Paket")
+print("2. Tampil Data Paket Yang sedang di proses")
+print("0. Keluar")
+menu = int(input("Masukkan Menu Pilihan Anda : "))
+while (menu != 0 ):
+    if(menu == 1):
+        if (not list1.Penuh()):
+            Noresi = str(input("No resi: "))
+            Nama = str(input("Nama Pengirim : "))
+            Alamat = str(input("Alamat: "))
+            Deskripsi = str(input("Deskripsi Barang :"))
+            #Indeks_baru = IndeksNilai(Nilai_Baru)
+            #print("Indeks : ",Indeks_baru)
+        list1.Push(Noresi,Nama,Alamat,Deskripsi,Noresibaru=Noresi,Namabaru= Nama,Alamatbaru=Alamat,Deskripsibaru=Deskripsi)
+        list1.TampilPop(Noresi,Nama,Alamat,Deskripsi)
+    elif (menu == 2):
+        list1.TampilPop(Noresi,Nama,Alamat,Deskripsi)
+    else:
+        print("Salah Menu")
+
+    print("--MENU PILIHAN--")
+    print("1. Isi Data Mahasiswa")
+    print("2. Tampil Data Mahasiswa")
+    print("0. Keluar")
+    menu = int(input("Masukkan Menu Pilihan Anda : "))
