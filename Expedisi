@@ -66,7 +66,7 @@ class linkedList:
             print("=====================================")
             i = 0
             while (Top != None):
-                print(i + 1, " No Resi : ",Top.Noresi, "| Nama :  ", Top.Nama, "| Alamat : ", Top.Alamat, "| Deskripsi :", Top.Deskripsi,"| Ongkir : ",self.BiayaPengiriman(Jarak))
+                print(i + 1, " No Resi : ",Top.Noresi, "| Nama :  ", Top.Nama, "| Alamat : ", Top.Alamat, "| Deskripsi :", Top.Deskripsi,"| Ongkir : ",self.BiayaPengiriman(Top.Jarak),"| Jarak : ",Top.Jarak,"KM")
                 i += 1
                 Top = Top.next
         else:
